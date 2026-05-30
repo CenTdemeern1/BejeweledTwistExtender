@@ -138,6 +138,7 @@
     <ClCompile Include="mods\autosavemod.cpp" />
     <ClCompile Include="mods\ccwtwist.cpp" />
     <ClCompile Include="mods\coremod.cpp" />
+    <ClCompile Include="mods\loadermod.cpp" />
     <ClCompile Include="mods\mods.cpp" />
     <ClCompile Include="mods\multitwist.cpp" />
     <ClCompile Include="mods\scriptingmod.cpp" />
@@ -193,10 +194,12 @@
     <ClInclude Include="mods\autosavemod.h" />
     <ClInclude Include="mods\ccwtwist.h" />
     <ClInclude Include="mods\coremod.h" />
+    <ClInclude Include="mods\loadermod.h" />
     <ClInclude Include="mods\mods.h" />
     <ClInclude Include="mods\multitwist.h" />
     <ClInclude Include="mods\scriptingmod.h" />
     <ClInclude Include="mods\crashfixmod.h" />
+    <ClInclude Include="NativeModApi.h" />
     <ClInclude Include="ScriptGameFunctions.h" />
     <ClInclude Include="Script.h" />
     <ClInclude Include="ScriptManager.h" />

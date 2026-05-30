@@ -8,6 +8,7 @@
 #include "coremod.h"
 #include "crashfixmod.h"
 #include "scriptingmod.h"
+#include "loadermod.h"
 #include "ccwtwist.h"
 #include "autosavemod.h"
 #include "aspectratiofix.h"
@@ -85,6 +86,7 @@ bool initMods(CodeInjection::FuncInterceptor* hook)
     initCoreMod(hook);
     initCrashFixMod(hook);
     initScriptingMod(hook);
+    initLoaderMod(hook);
     initCCWTwistMod(hook);
     initAutosaveMod(hook);
     initAspectRatioFix(hook);
