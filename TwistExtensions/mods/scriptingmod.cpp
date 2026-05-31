@@ -29,12 +29,12 @@ namespace ScriptingMod
         }
     }
 
-    void onUpdateBoard(BejeweledTwist* game)
+    void onUpdateBoard()
     {
         gScriptManager.CallOnBoardUpdate();
     }
 
-    void onKeyPress(BejeweledTwist* game, int key)
+    void onKeyPress(int key)
     {
         gScriptManager.CallOnKeyPress(key);
     }

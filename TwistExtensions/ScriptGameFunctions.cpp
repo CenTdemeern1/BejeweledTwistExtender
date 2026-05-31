@@ -29,7 +29,7 @@ namespace ScriptGameFunctions
             return 0;
         }
 
-        std::string name = gBejeweledTwist->GetPieceSkinName(skin);
+        std::string name = BejeweledTwist::GetPieceSkinName(skin);
 
         lua_pushstring(lua, name.c_str());
 
@@ -61,7 +61,7 @@ namespace ScriptGameFunctions
             return 0;
         }
 
-        std::string name = gBejeweledTwist->GetPieceSpecialName(specialType);
+        std::string name = BejeweledTwist::GetPieceSpecialName(specialType);
 
         lua_pushstring(lua, name.c_str());
 
@@ -70,7 +70,7 @@ namespace ScriptGameFunctions
 
     int GetRandomSkin(lua_State* lua)
     {
-        Sexy::Piece::Skin skin = gBejeweledTwist->GetRandomSkin();
+        Sexy::Piece::Skin skin = BejeweledTwist::GetRandomSkin();
 
         lua_pushinteger(lua, static_cast<int>(skin));
 
@@ -96,7 +96,7 @@ namespace ScriptGameFunctions
         int x = static_cast<int>(lua_tointeger(lua, 2));
         int y = static_cast<int>(lua_tointeger(lua, 3));
 
-        gBejeweledTwist->TwistGemsAt(fromScript, x, y);
+        BejeweledTwist::TwistGemsAt(fromScript, x, y);
 
         return 1;
     }
@@ -105,7 +105,7 @@ namespace ScriptGameFunctions
     {
         int x;
         int y;
-        gBejeweledTwist->GetHoverPos(x, y);
+        BejeweledTwist::GetHoverPos(x, y);
 
         lua_newtable(lua);
 
@@ -156,7 +156,7 @@ namespace ScriptGameFunctions
             return 0;
         }
 
-        gBejeweledTwist->SetPieceSkin(x, y, skin);
+        BejeweledTwist::SetPieceSkin(x, y, skin);
 
         return 1;
     }
@@ -179,7 +179,7 @@ namespace ScriptGameFunctions
         int x = static_cast<int>(lua_tointeger(lua, 1));
         int y = static_cast<int>(lua_tointeger(lua, 2));
 
-        Sexy::Piece::Skin skin = gBejeweledTwist->GetPieceSkin(x, y);
+        Sexy::Piece::Skin skin = BejeweledTwist::GetPieceSkin(x, y);
 
         lua_pushinteger(lua, static_cast<int>(skin));
 
@@ -211,7 +211,7 @@ namespace ScriptGameFunctions
             return 0;
         }
 
-        gBejeweledTwist->SetPieceSkinAtHover(skin);
+        BejeweledTwist::SetPieceSkinAtHover(skin);
 
         return 1;
     }
@@ -250,7 +250,7 @@ namespace ScriptGameFunctions
             return 0;
         }
 
-        gBejeweledTwist->SetPieceSpecial(x, y, specialType);
+        BejeweledTwist::SetPieceSpecial(x, y, specialType);
 
         return 1;
     }
@@ -278,21 +278,21 @@ namespace ScriptGameFunctions
             return 0;
         }
 
-        gBejeweledTwist->SetPieceSpecialAtHover(specialType);
+        BejeweledTwist::SetPieceSpecialAtHover(specialType);
 
         return 1;
     }
 
     int FillBoard(lua_State* lua)
     {
-        gBejeweledTwist->FillBoard();
+        BejeweledTwist::FillBoard();
 
         return 1;
     }
 
     int ClearBoard(lua_State* lua)
     {
-        gBejeweledTwist->ClearBoard();
+        BejeweledTwist::ClearBoard();
 
         return 1;
     }
@@ -331,7 +331,7 @@ namespace ScriptGameFunctions
             return 0;
         }
 
-        bool result = gBejeweledTwist->CheckSpecial(x, y, specialType);
+        bool result = BejeweledTwist::CheckSpecial(x, y, specialType);
 
         lua_pushboolean(lua, result);
 
@@ -356,7 +356,7 @@ namespace ScriptGameFunctions
         int x = static_cast<int>(lua_tointeger(lua, 1));
         int y = static_cast<int>(lua_tointeger(lua, 2));
 
-        Sexy::Piece::SpecialType type = gBejeweledTwist->GetSpecial(x, y);
+        Sexy::Piece::SpecialType type = BejeweledTwist::GetSpecial(x, y);
 
         lua_pushinteger(lua, type);
 
@@ -388,7 +388,7 @@ namespace ScriptGameFunctions
         int y = static_cast<int>(lua_tointeger(lua, 2));
         int counter = static_cast<int>(lua_tointeger(lua, 3));
 
-        gBejeweledTwist->SetCounter(x, y, counter);
+        BejeweledTwist::SetCounter(x, y, counter);
 
         return 1;
     }
@@ -411,7 +411,7 @@ namespace ScriptGameFunctions
         int x = static_cast<int>(lua_tointeger(lua, 1));
         int y = static_cast<int>(lua_tointeger(lua, 2));
 
-        int counter = gBejeweledTwist->GetCounter(x, y);
+        int counter = BejeweledTwist::GetCounter(x, y);
 
         lua_pushinteger(lua, counter);
 
@@ -443,7 +443,7 @@ namespace ScriptGameFunctions
         int y = static_cast<int>(lua_tointeger(lua, 2));
         int type = static_cast<int>(lua_tointeger(lua, 3));
 
-        gBejeweledTwist->SetPieceType(x, y, type);
+        BejeweledTwist::SetPieceType(x, y, type);
 
         return 1;
     }
@@ -466,7 +466,7 @@ namespace ScriptGameFunctions
         int x = static_cast<int>(lua_tointeger(lua, 1));
         int y = static_cast<int>(lua_tointeger(lua, 2));
 
-        int type = gBejeweledTwist->GetPieceType(x, y);
+        int type = BejeweledTwist::GetPieceType(x, y);
 
         lua_pushinteger(lua, type);
 
@@ -507,7 +507,7 @@ namespace ScriptGameFunctions
             return 0;
         }
 
-        gBejeweledTwist->SetOldSkin(x, y, skin);
+        BejeweledTwist::SetOldSkin(x, y, skin);
 
         return 1;
     }
@@ -530,7 +530,7 @@ namespace ScriptGameFunctions
         int x = static_cast<int>(lua_tointeger(lua, 1));
         int y = static_cast<int>(lua_tointeger(lua, 2));
 
-        Sexy::Piece::Skin skin = gBejeweledTwist->GetOldSkin(x, y);
+        Sexy::Piece::Skin skin = BejeweledTwist::GetOldSkin(x, y);
 
         lua_pushinteger(lua, static_cast<int>(skin));
 
@@ -562,7 +562,7 @@ namespace ScriptGameFunctions
         int y = static_cast<int>(lua_tointeger(lua, 2));
         bool matchable = static_cast<int>(lua_toboolean(lua, 3));
 
-        gBejeweledTwist->SetPieceMatchable(x, y, matchable);
+        BejeweledTwist::SetPieceMatchable(x, y, matchable);
 
         return 1;
     }
@@ -585,7 +585,7 @@ namespace ScriptGameFunctions
         int x = static_cast<int>(lua_tointeger(lua, 1));
         int y = static_cast<int>(lua_tointeger(lua, 2));
 
-        bool matchable = gBejeweledTwist->GetPieceMatchable(x, y);
+        bool matchable = BejeweledTwist::GetPieceMatchable(x, y);
 
         lua_pushboolean(lua, matchable);
 

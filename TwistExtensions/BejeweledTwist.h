@@ -3,42 +3,36 @@
 #include <Engine.h>
 #include <string>
 
-class BejeweledTwist
+namespace BejeweledTwist
 {
-public:
-    BejeweledTwist();
-    ~BejeweledTwist();
+    extern Sexy::Piece::Skin GetSkinByName(std::string name);
+    extern Sexy::Piece::SpecialType GetSpecialByName(std::string name);
 
-    static Sexy::Piece::Skin GetSkinByName(std::string name);
-    static Sexy::Piece::SpecialType GetSpecialByName(std::string name);
+    extern std::string GetPieceSkinName(Sexy::Piece::Skin skin);
+    extern std::string GetPieceSpecialName(Sexy::Piece::SpecialType special);
+    extern Sexy::Piece::Skin GetRandomSkin();
+    extern void TwistGemsAt(bool fromScript, int x, int y);
+    extern void GetHoverPos(int& x, int& y);
+    extern void SetPieceSkin(int x, int y, Sexy::Piece::Skin skin);
+    extern Sexy::Piece::Skin GetPieceSkin(int x, int y);
+    extern void SetPieceSkinAtHover(Sexy::Piece::Skin skin);
+    extern void SetPieceSpecial(int x, int y, Sexy::Piece::SpecialType special);
+    extern void SetPieceSpecialAtHover(Sexy::Piece::SpecialType special);
+    extern void ClearBoard();
+    extern void FillBoard();
+    extern bool CheckSpecial(int x, int y, Sexy::Piece::SpecialType special);
+    extern Sexy::Piece::SpecialType GetSpecial(int x, int y);
+    extern void SetCounter(int x, int y, int counter);
+    extern int GetCounter(int x, int y);
+    extern void SetPieceType(int x, int y, int type);
+    extern int GetPieceType(int x, int y);
+    extern void SetOldSkin(int x, int y, Sexy::Piece::Skin skin);
+    extern Sexy::Piece::Skin GetOldSkin(int x, int y);
+    extern void SetPieceMatchable(int x, int y, bool matchable);
+    extern bool GetPieceMatchable(int x, int y);
 
-    std::string GetPieceSkinName(Sexy::Piece::Skin skin) const;
-    std::string GetPieceSpecialName(Sexy::Piece::SpecialType special) const;
-    Sexy::Piece::Skin GetRandomSkin() const;
-    void TwistGemsAt(bool fromScript, int x, int y) const;
-    void GetHoverPos(int& x, int& y) const;
-    void SetPieceSkin(int x, int y, Sexy::Piece::Skin skin) const;
-    Sexy::Piece::Skin GetPieceSkin(int x, int y) const;
-    void SetPieceSkinAtHover(Sexy::Piece::Skin skin) const;
-    void SetPieceSpecial(int x, int y, Sexy::Piece::SpecialType special) const;
-    void SetPieceSpecialAtHover(Sexy::Piece::SpecialType special) const;
-    void ClearBoard() const;
-    void FillBoard() const;
-    bool CheckSpecial(int x, int y, Sexy::Piece::SpecialType special) const;
-    Sexy::Piece::SpecialType GetSpecial(int x, int y) const;
-    void SetCounter(int x, int y, int counter) const;
-    int GetCounter(int x, int y) const;
-    void SetPieceType(int x, int y, int type) const;
-    int GetPieceType(int x, int y) const;
-    void SetOldSkin(int x, int y, Sexy::Piece::Skin skin) const;
-    Sexy::Piece::Skin GetOldSkin(int x, int y) const;
-    void SetPieceMatchable(int x, int y, bool matchable) const;
-    bool GetPieceMatchable(int x, int y) const;
+    extern Sexy::Piece* GetPiece(int x, int y);
 
-    Sexy::Piece* GetPiece(int x, int y) const;
-
-    bool hasGameManager() const;
-    Sexy::GameManager* getGameManager() const;
+    extern bool hasGameManager();
+    extern Sexy::GameManager* getGameManager();
 };
-
-extern BejeweledTwist* gBejeweledTwist;

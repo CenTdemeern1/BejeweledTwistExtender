@@ -8,9 +8,9 @@
 
 typedef void(*PreInitHook)(Sexy::WinTwistApp* app);
 typedef void(*PostInitHook)(Sexy::WinTwistApp* app);
-typedef void(*UpdateBoardHook)(BejeweledTwist* game);
-typedef void(*BoardKeyPressHook)(BejeweledTwist* game, int key);
-typedef bool(*ShouldAllowSelectionsHooks)(BejeweledTwist* game, bool& force);
+typedef void(*UpdateBoardHook)();
+typedef void(*BoardKeyPressHook)(int key);
+typedef bool(*ShouldAllowSelectionsHooks)(bool& force);
 typedef void(*WindowInputHook)(Sexy::WinTwistApp* app, int input);
 
 class Hooks
@@ -35,9 +35,9 @@ public:
 
     void callPreInitHooks(Sexy::WinTwistApp* app);
     void callPostInitHooks(Sexy::WinTwistApp* app);
-    void callUpdateBoardHooks(BejeweledTwist* game);
-    void callBoardKeyPressHooks(BejeweledTwist* game, int key);
-    bool callShouldAllowSelectionsHooks(BejeweledTwist* game);
+    void callUpdateBoardHooks();
+    void callBoardKeyPressHooks(int key);
+    bool callShouldAllowSelectionsHooks();
     void callWindowInputHooks(Sexy::WinTwistApp* app, int input);
 
 private:

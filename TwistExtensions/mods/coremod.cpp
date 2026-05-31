@@ -20,17 +20,17 @@ namespace CoreMod
     /// Called 60 times per second when in game
     void onUpdateBoard(Sexy::GameManager* gameManager)
     {
-        return gHooks.callUpdateBoardHooks(gBejeweledTwist);
+        return gHooks.callUpdateBoardHooks();
     }
 
     void onKeyPress(int key)
     {
-        return gHooks.callBoardKeyPressHooks(gBejeweledTwist, key);
+        return gHooks.callBoardKeyPressHooks(key);
     }
 
     bool shouldAllowGemSelecting(Sexy::GameManager* gameManager)
     {
-        return gHooks.callShouldAllowSelectionsHooks(gBejeweledTwist);
+        return gHooks.callShouldAllowSelectionsHooks();
     }
 
     void onWindowInput(Sexy::WinTwistApp* app, int input)

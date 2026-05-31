@@ -105,23 +105,23 @@ void Hooks::callPostInitHooks(Sexy::WinTwistApp* app)
     }
 }
 
-void Hooks::callUpdateBoardHooks(BejeweledTwist* game)
+void Hooks::callUpdateBoardHooks()
 {
     for (auto const& it : mUpdateBoardHooks)
     {
-        it.second(game);
+        it.second();
     }
 }
 
-void Hooks::callBoardKeyPressHooks(BejeweledTwist* game, int key)
+void Hooks::callBoardKeyPressHooks(int key)
 {
     for (auto const& it : mBoardKeyPressHooks)
     {
-        it.second(game, key);
+        it.second(key);
     }
 }
 
-bool Hooks::callShouldAllowSelectionsHooks(BejeweledTwist* game)
+bool Hooks::callShouldAllowSelectionsHooks()
 {
     bool forced = false;
     bool ret = true;
@@ -129,7 +129,7 @@ bool Hooks::callShouldAllowSelectionsHooks(BejeweledTwist* game)
     for (auto const& it : mShouldAllowSelectionsHooks)
     {
         bool localForce = false;
-        bool allow = it.second(game, localForce);
+        bool allow = it.second(localForce);
         if (!forced)
         {
             if (localForce)
