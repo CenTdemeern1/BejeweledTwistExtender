@@ -4,13 +4,14 @@
 #include <unordered_map>
 #include "CodeInjectionStream.h"
 #include "TrampolineGenerator.h"
+#include "ImportExport.h"
 
 namespace CodeInjection
 {
 	/// <summary>
 	/// Provides facilities for intercepting functions.
 	/// </summary>
-	class FuncInterceptor
+	class CODEINJECTION_EXPORT FuncInterceptor
 	{
 	public:
 		FuncInterceptor(CodeInjectionStream *stream, CodeAllocator *allocator)

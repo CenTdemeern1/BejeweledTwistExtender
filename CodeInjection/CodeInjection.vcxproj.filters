@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Include Files">
+      <UniqueIdentifier>{60b7cf41-f715-4890-92a5-85a1ffd439be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include Files\Extender">
+      <UniqueIdentifier>{880f8c01-de93-4d6d-adf7-9ed41ded4fab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\extender">
+      <UniqueIdentifier>{d0d49319-4409-4bfb-8df6-e347dc8b6eb5}</UniqueIdentifier>
+      <Extensions>
+      </Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\Addresses.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Engine.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\InterfaceMacros-win32.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\CodeAllocator.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\CodeInjectionStream.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\FuncInterceptor.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\LDE64.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\Memory.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\TrampolineGenerator.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\util.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\ImportExport.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\SharedObject.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\Filesystem.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\CodeAllocator.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\CodeInjectionStream.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\floatfix.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\FuncInterceptor.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\Memory-win32.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\SharedObject-win32.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\TrampolineGenerator.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\util.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\Filesystem-common.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+    <ClCompile Include="extender\Filesystem-win32.cpp">
+      <Filter>Source Files\extender</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="extender\LDE64-masm.asm">
+      <Filter>Source Files\extender</Filter>
+    </MASM>
+  </ItemGroup>
+</Project>

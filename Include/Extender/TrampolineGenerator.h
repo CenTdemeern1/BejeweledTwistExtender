@@ -2,13 +2,14 @@
 #define PLUGINLOADER_TRAMPOLINEGENERATOR_H
 
 #include "CodeAllocator.h"
+#include "ImportExport.h"
 
 namespace CodeInjection
 {
 	/// <summary>
 	/// Generates trampoline functions for code blocks.
 	/// </summary>
-	class TrampolineGenerator
+	class CODEINJECTION_EXPORT TrampolineGenerator
 	{
 	public:
 		explicit TrampolineGenerator(CodeAllocator *allocator)

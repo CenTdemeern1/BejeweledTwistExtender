@@ -272,3 +272,5 @@ TwistExtensions_Debug.lib
 *.nam
 *.til
 *.id0
+
+Game/

@@ -1,14 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.6.11822.322 stable
+VisualStudioVersion = 18.6.11822.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TwistExtensions", "TwistExtensions\TwistExtensions.vcxproj", "{D67138E9-2447-4BB2-9349-B0C3F73344A7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{26A8094C-3E81-40FF-A627-F41BCD46F6D1} = {26A8094C-3E81-40FF-A627-F41BCD46F6D1}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExampleMod", "ExampleMod\ExampleMod.vcxproj", "{AAF3A97A-353E-4917-861D-D5DFA7F17DC7}"
 	ProjectSection(ProjectDependencies) = postProject
-		{D67138E9-2447-4BB2-9349-B0C3F73344A7} = {D67138E9-2447-4BB2-9349-B0C3F73344A7}
+		{26A8094C-3E81-40FF-A627-F41BCD46F6D1} = {26A8094C-3E81-40FF-A627-F41BCD46F6D1}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CodeInjection", "CodeInjection\CodeInjection.vcxproj", "{26A8094C-3E81-40FF-A627-F41BCD46F6D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +29,10 @@ Global
 		{AAF3A97A-353E-4917-861D-D5DFA7F17DC7}.Debug|x86.Build.0 = Debug|Win32
 		{AAF3A97A-353E-4917-861D-D5DFA7F17DC7}.Release|x86.ActiveCfg = Release|Win32
 		{AAF3A97A-353E-4917-861D-D5DFA7F17DC7}.Release|x86.Build.0 = Release|Win32
+		{26A8094C-3E81-40FF-A627-F41BCD46F6D1}.Debug|x86.ActiveCfg = Debug|Win32
+		{26A8094C-3E81-40FF-A627-F41BCD46F6D1}.Debug|x86.Build.0 = Debug|Win32
+		{26A8094C-3E81-40FF-A627-F41BCD46F6D1}.Release|x86.ActiveCfg = Release|Win32
+		{26A8094C-3E81-40FF-A627-F41BCD46F6D1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,20 @@
+#ifndef PLUGINLOADER_IMPORTEXPORT_H
+#define PLUGINLOADER_IMPORTEXPORT_H
+
+
+#ifdef _WIN32
+
+#ifdef CODEINJECTION_EXPORTS
+#define CODEINJECTION_EXPORT __declspec( dllexport )
+#else // CODEINJECTION_EXPORTS
+#define CODEINJECTION_EXPORT __declspec( dllimport )
+#endif // CODEINJECTION_EXPORTS
+
+#else // _WIN32
+
+#define CODEINJECTION_EXPORT
+
+#endif // _WIN32
+
+
+#endif // PLUGINLOADER_IMPORTEXPORT_H

@@ -12,6 +12,7 @@
 namespace LoaderMod
 {
     static const char MODS_DIRECTORY[] = "data\\mods";
+    static const char MOD_FILE_EXTENSION[] = ".dll";
 
     void logNativeError()
     {
@@ -48,6 +49,7 @@ namespace LoaderMod
         for (auto& p : std::filesystem::directory_iterator(MODS_DIRECTORY))
         {
             if (p.is_directory()) continue;
+            if (p.path().extension() != MOD_FILE_EXTENSION) continue;
 
             LPCWSTR libPath = p.path().c_str();
             printf_s("Loading native mod: %S\n", libPath);

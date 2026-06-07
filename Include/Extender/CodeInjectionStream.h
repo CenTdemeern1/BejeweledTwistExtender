@@ -3,13 +3,15 @@
 
 #include <cstdint>
 
+#include "ImportExport.h"
+
 #ifndef _WIN32
 #include <sys/types.h>
 #endif
 
 namespace CodeInjection
 {
-	class CodeInjectionStream
+	class CODEINJECTION_EXPORT CodeInjectionStream
 	{
 	public:
 		/// <summary>

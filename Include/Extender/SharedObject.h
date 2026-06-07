@@ -1,7 +1,9 @@
 #ifndef PLUGINLOADER_SHAREDOBJECT_H
 #define PLUGINLOADER_SHAREDOBJECT_H
 
-class SharedObject
+#include "ImportExport.h"
+
+class CODEINJECTION_EXPORT SharedObject
 {
 public:
 	SharedObject();

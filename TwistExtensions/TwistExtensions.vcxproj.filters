@@ -13,23 +13,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Include Files">
-      <UniqueIdentifier>{a538264d-c905-4f08-b1b3-b4f3d30d6096}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\mods">
       <UniqueIdentifier>{0a19eaa9-7df1-4b43-b228-02d4a3b557eb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\mods">
       <UniqueIdentifier>{14fe9a5d-6e6b-485a-94a8-5d2a5970ad74}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\extender">
-      <UniqueIdentifier>{ce5bd272-1ca1-4c9f-8f00-a00078c42dd6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include Files\Extender">
-      <UniqueIdentifier>{04dbfcb7-637c-44f6-85e3-1e5b5041e513}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\lua">
       <UniqueIdentifier>{e64ffa34-abcf-4037-9a65-e7a5e6ab1a41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include Files">
+      <UniqueIdentifier>{9d246138-5937-4fe1-b576-e064a0fddd32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include Files\Extender">
+      <UniqueIdentifier>{c77effcd-b996-42cb-b49b-cc2c30c6b649}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -41,36 +38,6 @@
     </ClCompile>
     <ClCompile Include="mods\coremod.cpp">
       <Filter>Source Files\mods</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\Memory-win32.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\SharedObject-win32.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\TrampolineGenerator.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\util.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\CodeAllocator.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\CodeInjectionStream.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\Filesystem-common.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\Filesystem-win32.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\floatfix.cpp">
-      <Filter>Source Files\extender</Filter>
-    </ClCompile>
-    <ClCompile Include="extender\FuncInterceptor.cpp">
-      <Filter>Source Files\extender</Filter>
     </ClCompile>
     <ClCompile Include="Hooks.cpp">
       <Filter>Source Files</Filter>
@@ -204,49 +171,16 @@
     <ClCompile Include="mods\multitwist.cpp">
       <Filter>Source Files\mods</Filter>
     </ClCompile>
+    <ClCompile Include="mods\loadermod.cpp">
+      <Filter>Source Files\mods</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Include\Engine.h">
-      <Filter>Include Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\InterfaceMacros-win32.h">
-      <Filter>Include Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Addresses.h">
-      <Filter>Include Files</Filter>
-    </ClInclude>
     <ClInclude Include="mods\mods.h">
       <Filter>Header Files\mods</Filter>
     </ClInclude>
     <ClInclude Include="mods\coremod.h">
       <Filter>Header Files\mods</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\util.h">
-      <Filter>Include Files\Extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\CodeAllocator.h">
-      <Filter>Include Files\Extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\CodeInjectionStream.h">
-      <Filter>Include Files\Extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\Filesystem.h">
-      <Filter>Include Files\Extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\FuncInterceptor.h">
-      <Filter>Include Files\Extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\LDE64.h">
-      <Filter>Include Files\Extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\Memory.h">
-      <Filter>Include Files\Extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\SharedObject.h">
-      <Filter>Include Files\Extender</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\Extender\TrampolineGenerator.h">
-      <Filter>Include Files\Extender</Filter>
     </ClInclude>
     <ClInclude Include="Hooks.h">
       <Filter>Header Files</Filter>
@@ -365,10 +299,50 @@
     <ClInclude Include="mods\multitwist.h">
       <Filter>Header Files\mods</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <MASM Include="extender\LDE64-masm.asm">
-      <Filter>Source Files\extender</Filter>
-    </MASM>
+    <ClInclude Include="..\Include\Addresses.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Engine.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\InterfaceMacros-win32.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\CodeAllocator.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\CodeInjectionStream.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\FuncInterceptor.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\LDE64.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\Memory.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\TrampolineGenerator.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\util.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\ImportExport.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\SharedObject.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Extender\Filesystem.h">
+      <Filter>Include Files\Extender</Filter>
+    </ClInclude>
+    <ClInclude Include="mods\loadermod.h">
+      <Filter>Header Files\mods</Filter>
+    </ClInclude>
+    <ClInclude Include="NativeModApi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -19,7 +19,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 #include <Engine.h>
 #include <Extender/FuncInterceptor.h>
-#include <Hooks.cpp>
+//#include <Hooks.cpp>
 //#include <extender/util.cpp>
 //#include <BejeweledTwist.cpp>
 
@@ -36,10 +36,11 @@ void evilPreInit(Sexy::WinTwistApp* app) {
 //    game->TwistGemsAt(true, 3, 3);
 //}
 
-extern "C" bool __declspec(dllexport) __cdecl initMod(CodeInjection::FuncInterceptor* interceptor, Hooks* hooks)
+extern "C" bool __declspec(dllexport) __cdecl initMod(CodeInjection::FuncInterceptor* interceptor, void* hooks)
 {
     interceptor->intercept(onPreInit, evilPreInit);
-    hooks->registerPreInitHook(onPreInit);
+    onPreInit(nullptr);
+    //hooks->registerPreInitHook(onPreInit);
     //hooks->registerUpdateBoardHook(onBoardUpdate);
     return true;
 }

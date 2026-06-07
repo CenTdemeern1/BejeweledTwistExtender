@@ -4,6 +4,8 @@
 #include <cstdint>
 #include <stack>
 
+#include "ImportExport.h"
+
 #ifndef _WIN32
 #include <sys/types.h>
 #endif
@@ -13,7 +15,7 @@ namespace CodeInjection
 	/// <summary>
 	/// Simple mechanism for allocating blocks of executable code which can be written to and read from.
 	/// </summary>
-	class CodeAllocator
+	class CODEINJECTION_EXPORT CodeAllocator
 	{
 	public:
 		CodeAllocator();
