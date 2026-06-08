@@ -65,6 +65,9 @@
     <ClInclude Include="..\Include\Extender\Filesystem.h">
       <Filter>Include Files\Extender</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\HookFunctions.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

@@ -91,6 +91,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BejeweledTwist.cpp" />
+    <ClCompile Include="HookFunctions.cpp" />
     <ClCompile Include="Hooks.cpp" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
@@ -152,8 +153,10 @@
     <ClInclude Include="..\Include\Extender\SharedObject.h" />
     <ClInclude Include="..\Include\Extender\TrampolineGenerator.h" />
     <ClInclude Include="..\Include\Extender\util.h" />
+    <ClInclude Include="..\Include\HookFunctions.h" />
     <ClInclude Include="..\Include\InterfaceMacros-win32.h" />
     <ClInclude Include="BejeweledTwist.h" />
+    <ClInclude Include="HookFunctions.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="lua\lapi.h" />
     <ClInclude Include="lua\lauxlib.h" />

@@ -60,9 +60,6 @@
     <ClCompile Include="mods\crashfixmod.cpp">
       <Filter>Source Files\mods</Filter>
     </ClCompile>
-    <ClCompile Include="mods\ccwtwist.cpp">
-      <Filter>Source Files\mods</Filter>
-    </ClCompile>
     <ClCompile Include="mods\autosavemod.cpp">
       <Filter>Source Files\mods</Filter>
     </ClCompile>
@@ -173,6 +170,12 @@
     </ClCompile>
     <ClCompile Include="mods\loadermod.cpp">
       <Filter>Source Files\mods</Filter>
+    </ClCompile>
+    <ClCompile Include="mods\ccwtwist.cpp">
+      <Filter>Source Files\mods</Filter>
+    </ClCompile>
+    <ClCompile Include="HookFunctions.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -342,6 +345,12 @@
       <Filter>Header Files\mods</Filter>
     </ClInclude>
     <ClInclude Include="NativeModApi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\HookFunctions.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HookFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

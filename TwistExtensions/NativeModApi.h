@@ -1,6 +1,6 @@
 #pragma once
 
 #include "Extender/FuncInterceptor.h"
-#include "Hooks.h"
+#include "HookFunctions.h"
 
-typedef bool (__cdecl* InitModFn)(CodeInjection::FuncInterceptor*, Hooks*);
+typedef bool (__cdecl* InitModFn)(CodeInjection::FuncInterceptor*, HookFunctions*);

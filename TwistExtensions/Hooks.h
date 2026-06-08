@@ -4,14 +4,7 @@
 #include <map>
 
 #include <Engine.h>
-#include "BejeweledTwist.h"
-
-typedef void(*PreInitHook)(Sexy::WinTwistApp* app);
-typedef void(*PostInitHook)(Sexy::WinTwistApp* app);
-typedef void(*UpdateBoardHook)();
-typedef void(*BoardKeyPressHook)(int key);
-typedef bool(*ShouldAllowSelectionsHooks)(bool& force);
-typedef void(*WindowInputHook)(Sexy::WinTwistApp* app, int input);
+#include <HookFunctions.h>
 
 class Hooks
 {

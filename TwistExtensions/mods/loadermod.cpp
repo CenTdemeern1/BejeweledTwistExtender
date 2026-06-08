@@ -1,6 +1,6 @@
 #include "loadermod.h"
 
-#include "../Hooks.h"
+#include "../HookFunctions.h"
 #include "Extender/util.h"
 #include "../NativeModApi.h"
 
@@ -70,7 +70,7 @@ namespace LoaderMod
                 continue;
             }
 
-            if (!initMod(hook, &gHooks)) {
+            if (!initMod(hook, &gHookFunctions)) {
                 printf_s("Native mod %S failed to initialize; unloading\n", libPath);
                 if (!FreeLibrary(library)) {
                     logNativeError();

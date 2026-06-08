@@ -19,9 +19,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 #include <Engine.h>
 #include <Extender/FuncInterceptor.h>
-//#include <Hooks.cpp>
-//#include <extender/util.cpp>
-//#include <BejeweledTwist.cpp>
+#include <HookFunctions.h>
 
 void onPreInit(Sexy::WinTwistApp* app) {
     printf_s("Hello from a C++ native mod's preInit hook!");
@@ -31,16 +29,16 @@ void evilPreInit(Sexy::WinTwistApp* app) {
     printf_s("Hello! I am evil!");
 }
 
-//void onBoardUpdate(BejeweledTwist* game) {
-//    printf_s("The board has updated! Let's twist");
-//    game->TwistGemsAt(true, 3, 3);
-//}
+void onBoardUpdate(/*BejeweledTwist* game*/) {
+    printf_s("The board has updated! Let's twist\n");
+    //game->TwistGemsAt(true, 3, 3);
+}
 
-extern "C" bool __declspec(dllexport) __cdecl initMod(CodeInjection::FuncInterceptor* interceptor, void* hooks)
+extern "C" bool __declspec(dllexport) __cdecl initMod(CodeInjection::FuncInterceptor* interceptor, HookFunctions* hooks)
 {
-    interceptor->intercept(onPreInit, evilPreInit);
-    onPreInit(nullptr);
-    //hooks->registerPreInitHook(onPreInit);
-    //hooks->registerUpdateBoardHook(onBoardUpdate);
+    //interceptor->intercept(onPreInit, evilPreInit);
+    //onPreInit(nullptr);
+    hooks->registerPreInitHook(onPreInit);
+    hooks->registerUpdateBoardHook(onBoardUpdate);
     return true;
 }
