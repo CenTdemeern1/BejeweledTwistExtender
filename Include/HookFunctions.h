@@ -4,12 +4,12 @@
 #include <Engine.h>
 #include <TwistFunctions.h>
 
-typedef void(*PreInitHook)(Sexy::WinTwistApp* app);
-typedef void(*PostInitHook)(Sexy::WinTwistApp* app);
-typedef void(*UpdateBoardHook)(TwistFunctions* game);
-typedef void(*BoardKeyPressHook)(TwistFunctions* game, int key);
-typedef bool(*ShouldAllowSelectionsHooks)(TwistFunctions* game, bool& force);
-typedef void(*WindowInputHook)(Sexy::WinTwistApp* app, int input);
+typedef void (*PreInitHook)(Sexy::WinTwistApp* app);
+typedef void (*PostInitHook)(Sexy::WinTwistApp* app);
+typedef void (*UpdateBoardHook)(TwistFunctions* game);
+typedef void (*BoardKeyPressHook)(TwistFunctions* game, int key);
+typedef bool (*ShouldAllowSelectionsHooks)(TwistFunctions* game, bool& force);
+typedef void (*WindowInputHook)(Sexy::WinTwistApp* app, int input);
 
 typedef struct {
     int (*registerPreInitHook)(PreInitHook preInit);
