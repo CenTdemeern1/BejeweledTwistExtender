@@ -105,23 +105,23 @@ void Hooks::callPostInitHooks(Sexy::WinTwistApp* app)
     }
 }
 
-void Hooks::callUpdateBoardHooks()
+void Hooks::callUpdateBoardHooks(TwistFunctions* game)
 {
     for (auto const& it : mUpdateBoardHooks)
     {
-        it.second();
+        it.second(game);
     }
 }
 
-void Hooks::callBoardKeyPressHooks(int key)
+void Hooks::callBoardKeyPressHooks(TwistFunctions* game, int key)
 {
     for (auto const& it : mBoardKeyPressHooks)
     {
-        it.second(key);
+        it.second(game, key);
     }
 }
 
-bool Hooks::callShouldAllowSelectionsHooks()
+bool Hooks::callShouldAllowSelectionsHooks(TwistFunctions* game)
 {
     bool forced = false;
     bool ret = true;
@@ -129,7 +129,7 @@ bool Hooks::callShouldAllowSelectionsHooks()
     for (auto const& it : mShouldAllowSelectionsHooks)
     {
         bool localForce = false;
-        bool allow = it.second(localForce);
+        bool allow = it.second(game, localForce);
         if (!forced)
         {
             if (localForce)

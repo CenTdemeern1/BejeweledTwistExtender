@@ -2,12 +2,13 @@
 #define __HOOKFUNCTIONS_H_
 
 #include <Engine.h>
+#include <TwistFunctions.h>
 
 typedef void(*PreInitHook)(Sexy::WinTwistApp* app);
 typedef void(*PostInitHook)(Sexy::WinTwistApp* app);
-typedef void(*UpdateBoardHook)();
-typedef void(*BoardKeyPressHook)(int key);
-typedef bool(*ShouldAllowSelectionsHooks)(bool& force);
+typedef void(*UpdateBoardHook)(TwistFunctions* game);
+typedef void(*BoardKeyPressHook)(TwistFunctions* game, int key);
+typedef bool(*ShouldAllowSelectionsHooks)(TwistFunctions* game, bool& force);
 typedef void(*WindowInputHook)(Sexy::WinTwistApp* app, int input);
 
 typedef struct {
@@ -27,9 +28,9 @@ typedef struct {
 
     void (*callPreInitHooks)(Sexy::WinTwistApp* app);
     void (*callPostInitHooks)(Sexy::WinTwistApp* app);
-    void (*callUpdateBoardHooks)();
-    void (*callBoardKeyPressHooks)(int key);
-    bool (*callShouldAllowSelectionsHooks)();
+    void (*callUpdateBoardHooks)(TwistFunctions* game);
+    void (*callBoardKeyPressHooks)(TwistFunctions* game, int key);
+    bool (*callShouldAllowSelectionsHooks)(TwistFunctions* game);
     void (*callWindowInputHooks)(Sexy::WinTwistApp* app, int input);
 } HookFunctions;
 

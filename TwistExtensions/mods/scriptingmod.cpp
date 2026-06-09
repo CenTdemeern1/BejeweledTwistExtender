@@ -29,12 +29,12 @@ namespace ScriptingMod
         }
     }
 
-    void onUpdateBoard()
+    void onUpdateBoard(TwistFunctions* game)
     {
         gScriptManager.CallOnBoardUpdate();
     }
 
-    void onKeyPress(int key)
+    void onKeyPress(TwistFunctions* game, int key)
     {
         gScriptManager.CallOnKeyPress(key);
     }

@@ -1,6 +1,7 @@
 #include "coremod.h"
 
 #include "../Hooks.h"
+#include "../TwistFunctions.h"
 
 #include <Engine.h>
 #include <Extender/util.h>
@@ -20,17 +21,17 @@ namespace CoreMod
     /// Called 60 times per second when in game
     void onUpdateBoard(Sexy::GameManager* gameManager)
     {
-        return gHooks.callUpdateBoardHooks();
+        return gHooks.callUpdateBoardHooks(&gTwistFunctions);
     }
 
     void onKeyPress(int key)
     {
-        return gHooks.callBoardKeyPressHooks(key);
+        return gHooks.callBoardKeyPressHooks(&gTwistFunctions, key);
     }
 
     bool shouldAllowGemSelecting(Sexy::GameManager* gameManager)
     {
-        return gHooks.callShouldAllowSelectionsHooks();
+        return gHooks.callShouldAllowSelectionsHooks(&gTwistFunctions);
     }
 
     void onWindowInput(Sexy::WinTwistApp* app, int input)

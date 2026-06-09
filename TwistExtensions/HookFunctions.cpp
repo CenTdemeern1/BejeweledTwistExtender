@@ -20,9 +20,9 @@ namespace HookFunctionDefinitions {
 
 	GENHOOKFN(void, callPreInitHooks, (Sexy::WinTwistApp* app), (app));
 	GENHOOKFN(void, callPostInitHooks, (Sexy::WinTwistApp* app), (app));
-	GENHOOKFN(void, callUpdateBoardHooks, (), ());
-	GENHOOKFN(void, callBoardKeyPressHooks, (int key), (key));
-	GENHOOKFN(bool, callShouldAllowSelectionsHooks, (), ());
+	GENHOOKFN(void, callUpdateBoardHooks, (TwistFunctions* game), (game));
+	GENHOOKFN(void, callBoardKeyPressHooks, (TwistFunctions* game, int key), (game, key));
+	GENHOOKFN(bool, callShouldAllowSelectionsHooks, (TwistFunctions* game), (game));
 	GENHOOKFN(void, callWindowInputHooks, (Sexy::WinTwistApp* app, int input), (app, input));
 }
 using namespace HookFunctionDefinitions;

@@ -5,6 +5,7 @@
 
 #include <Engine.h>
 #include <HookFunctions.h>
+#include <TwistFunctions.h>
 
 class Hooks
 {
@@ -28,9 +29,9 @@ public:
 
     void callPreInitHooks(Sexy::WinTwistApp* app);
     void callPostInitHooks(Sexy::WinTwistApp* app);
-    void callUpdateBoardHooks();
-    void callBoardKeyPressHooks(int key);
-    bool callShouldAllowSelectionsHooks();
+    void callUpdateBoardHooks(TwistFunctions* game);
+    void callBoardKeyPressHooks(TwistFunctions* game, int key);
+    bool callShouldAllowSelectionsHooks(TwistFunctions* game);
     void callWindowInputHooks(Sexy::WinTwistApp* app, int input);
 
 private:

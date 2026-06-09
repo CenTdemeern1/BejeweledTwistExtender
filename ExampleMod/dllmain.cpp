@@ -20,6 +20,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 #include <Engine.h>
 #include <Extender/FuncInterceptor.h>
 #include <HookFunctions.h>
+#include <TwistFunctions.h>
 
 void onPreInit(Sexy::WinTwistApp* app) {
     printf_s("Hello from a C++ native mod's preInit hook!");
@@ -29,9 +30,13 @@ void evilPreInit(Sexy::WinTwistApp* app) {
     printf_s("Hello! I am evil!");
 }
 
-void onBoardUpdate(/*BejeweledTwist* game*/) {
+void onBoardUpdate(TwistFunctions* game) {
     printf_s("The board has updated! Let's twist\n");
-    //game->TwistGemsAt(true, 3, 3);
+    for (int y = 0; y < 8; y++) {
+        for (int x = 0; x < 8; x++) {
+            game->TwistGemsAt(false, x, y);
+        }
+    }
 }
 
 extern "C" bool __declspec(dllexport) __cdecl initMod(CodeInjection::FuncInterceptor* interceptor, HookFunctions* hooks)
