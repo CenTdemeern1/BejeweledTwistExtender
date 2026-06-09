@@ -68,6 +68,9 @@
     <ClInclude Include="..\Include\HookFunctions.h">
       <Filter>Include Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\TwistFunctions.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">

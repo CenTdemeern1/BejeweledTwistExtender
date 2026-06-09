@@ -139,6 +139,7 @@
     <ClCompile Include="ScriptGameFunctions.cpp" />
     <ClCompile Include="Script.cpp" />
     <ClCompile Include="ScriptManager.cpp" />
+    <ClCompile Include="TwistFunctions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\Addresses.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="..\Include\Extender\util.h" />
     <ClInclude Include="..\Include\HookFunctions.h" />
     <ClInclude Include="..\Include\InterfaceMacros-win32.h" />
+    <ClInclude Include="..\Include\TwistFunctions.h" />
     <ClInclude Include="BejeweledTwist.h" />
     <ClInclude Include="HookFunctions.h" />
     <ClInclude Include="Hooks.h" />
@@ -199,6 +201,7 @@
     <ClInclude Include="ScriptGameFunctions.h" />
     <ClInclude Include="Script.h" />
     <ClInclude Include="ScriptManager.h" />
+    <ClInclude Include="TwistFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

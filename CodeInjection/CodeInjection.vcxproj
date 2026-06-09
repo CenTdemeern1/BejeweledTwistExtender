@@ -176,6 +176,7 @@
     <ClInclude Include="..\Include\Extender\util.h" />
     <ClInclude Include="..\Include\HookFunctions.h" />
     <ClInclude Include="..\Include\InterfaceMacros-win32.h" />
+    <ClInclude Include="..\Include\TwistFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
