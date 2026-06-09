@@ -32,8 +32,8 @@ void evilPreInit(Sexy::WinTwistApp* app) {
 
 void onBoardUpdate(TwistFunctions* game) {
     printf_s("The board has updated! Let's twist\n");
-    for (int y = 0; y < 8; y++) {
-        for (int x = 0; x < 8; x++) {
+    for (int y = 0; y < 7; y++) {
+        for (int x = 0; x < 7; x++) {
             game->TwistGemsAt(false, x, y);
         }
     }
