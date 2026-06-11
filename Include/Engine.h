@@ -233,7 +233,10 @@ namespace Sexy
         int field_10;
         char gap14New[324];
         int currentLevel;
-        char gap14[2040];
+        char gap14[164];
+        int levelUpProgress;
+        int levelUpRequirement;
+        char gap208[1868];
         Sexy::WinTwistApp *winTwistApp;
         char newGap4[2520];
         int boardWidth;
