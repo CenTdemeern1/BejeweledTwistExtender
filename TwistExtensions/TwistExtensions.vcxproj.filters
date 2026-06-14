@@ -362,5 +362,8 @@
     <ClInclude Include="..\Include\TwistFunctions.h">
       <Filter>Include Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\Version.h">
+      <Filter>Include Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

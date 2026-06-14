@@ -3,6 +3,14 @@
 #include <HookFunctions.h>
 #include <TwistFunctions.h>
 #include <Extender/util.h>
+#include <Version.h>
+
+extern "C" bool __declspec(dllexport) __cdecl isCompatibleWithVersion(Version* version) {
+    Version compiledAgainst = getTwistExtenderVersion();
+    // Checks whether the version actually loading this mod (the function argument)
+    // is compatible with the version of TwistExtender this mod was compiled against
+    return meetsVersionRequirement(version, &compiledAgainst);
+}
 
 void onPreInit(Sexy::WinTwistApp* app) {
     printf_s("Hello world from ExampleMod's preInit hook!");

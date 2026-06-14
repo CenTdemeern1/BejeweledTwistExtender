@@ -1,6 +1,8 @@
 #include <Windows.h>
 
 #include <Addresses.h>
+#include <CodeInjection.h>
+#include <Version.h>
 #include <Extender/CodeAllocator.h>
 #include <Extender/CodeInjectionStream.h>
 #include <Extender/FuncInterceptor.h>
@@ -28,9 +30,46 @@ namespace
         return true;
     }
 
+
+    void printVersion(Version* version) {
+        printf_s("%d.%d.%d", version->major, version->minor, version->patch);
+        if (version->prerelease) {
+            printf_s(" prerelease %d", version->prerelease);
+        }
+        if (version->prereleaseCompatible && version->prereleaseCompatible != version->prerelease) {
+            printf_s(" (compatible with prerelease %d mods and newer)", version->prereleaseCompatible);
+        }
+        printf("\n");
+    }
+
+    void checkVersion() {
+        printf("BejeweledTwistExtender ");
+        Version twistExtenderVersion = getTwistExtenderVersion();
+        printVersion(&twistExtenderVersion);
+
+        printf("CodeInjection ");
+        Version codeInjectionVersion = getCodeInjectionVersion();
+        printVersion(&codeInjectionVersion);
+
+        if (twistExtenderVersion != codeInjectionVersion) {
+            printf("Version mismatch!!");
+            MessageBox(
+                NULL,
+                "The BejeweledTwistExtender version does not match the CodeInjection version.\n\
+Did you forget to update one of the DLLs?\n\
+Start the game with the debug console enabled for more information.\n\
+The game will now close.",
+                "Version mismatch",
+                MB_OK | MB_ICONERROR
+            );
+            ExitProcess(1);
+        }
+    }
+
     bool initTwistExtender()
     {
         printf("== Initializing Twist Extender ==\n");
+        checkVersion();
         if (!initCore())
         {
             setLastError("Failed to initialize core!");

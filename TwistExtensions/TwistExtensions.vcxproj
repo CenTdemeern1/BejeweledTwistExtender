@@ -42,12 +42,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)\lua\;$(SolutionDir)\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\lua\;$(SolutionDir)\Include;$(SolutionDir)\CodeInjection\Include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)Game\</OutDir>
     <TargetName>$(ProjectName)_Debug</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(ProjectDir)\lua\;$(SolutionDir)\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)\lua\;$(SolutionDir)\Include;$(SolutionDir)\CodeInjection\Include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)Game\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -157,6 +157,7 @@
     <ClInclude Include="..\Include\HookFunctions.h" />
     <ClInclude Include="..\Include\InterfaceMacros-win32.h" />
     <ClInclude Include="..\Include\TwistFunctions.h" />
+    <ClInclude Include="..\Include\Version.h" />
     <ClInclude Include="BejeweledTwist.h" />
     <ClInclude Include="HookFunctions.h" />
     <ClInclude Include="Hooks.h" />
