@@ -5,7 +5,10 @@
 #include <Extender/util.h>
 #include <Version.h>
 
-extern "C" bool __declspec(dllexport) __cdecl isCompatibleWithVersion(Version* version) {
+#define BOILERPLATE extern "C" bool __declspec(dllexport) __cdecl
+
+
+BOILERPLATE isCompatibleWithVersion(Version* version) {
     Version compiledAgainst = getTwistExtenderVersion();
     // Checks whether the version actually loading this mod (the function argument)
     // is compatible with the version of TwistExtender this mod was compiled against
@@ -16,7 +19,7 @@ void onPreInit(Sexy::WinTwistApp* app) {
     printf_s("Hello world from ExampleMod's preInit hook!");
 }
 
-extern "C" bool __declspec(dllexport) __cdecl initMod(CodeInjection::FuncInterceptor* interceptor, HookFunctions* hooks)
+BOILERPLATE initMod(CodeInjection::FuncInterceptor* interceptor, HookFunctions* hooks)
 {
     hooks->registerPreInitHook(onPreInit);
 
@@ -32,13 +35,11 @@ extern "C" bool __declspec(dllexport) __cdecl initMod(CodeInjection::FuncInterce
     // Replace the tooltip text. This string is the same length as the original!
     //                                   "You have completed %d%% of Level %d"
     constexpr const char tooltipText[] = "You have scored %d out of %d points";
-    for (int i = 0; tooltipText[i]; i++) {
-        // 8-bit version
-        inject_byte(0x7deac0, tooltipText[i]);
-        // Wide version
-        inject_byte(0x7dea78 + i * 2, tooltipText[i]);
-        inject_byte(0x7dea79 + i * 2, 0);
-    }
+    constexpr const wchar_t tooltipTextWide[] = L"You have scored %d out of %d points";
+    CodeInjection::CodeInjectionStream stream((void*)0x7dea78, 108);
+    stream.write(tooltipTextWide, sizeof(tooltipTextWide));
+    stream.write(tooltipText, sizeof(tooltipText));
+    stream.flush();
 
     printf_s("ExampleMod has been initialized successfully!\n");
     return true;
