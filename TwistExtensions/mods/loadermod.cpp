@@ -14,6 +14,19 @@ namespace LoaderMod
 {
     constexpr const char MODS_DIRECTORY[] = "data\\mods";
     constexpr const char MOD_FILE_EXTENSION[] = ".dll";
+    constexpr const char ERROR_DIALOG_TITLE[] = "Error while loading native mod";
+    constexpr const char ERROR_DIALOG_MESSAGE[] = "There was a problem while loading a mod:\n\
+%s\n\
+\n\
+Would you like to continue launching the game anyway?\n\
+This might cause the game to become unstable.";
+
+    void ensureAllocSuccess(const char* string) {
+        if (string == NULL) {
+            printf("Could not allocate memory to format the error string. You should free up some memory or something\n");
+            ExitProcess(3);
+        }
+    }
 
     char* allocateFormat(const char* string, int count, ...) {
         va_list args;
@@ -34,15 +47,12 @@ namespace LoaderMod
     }
 
     void popupErrorMessage(const char* message) {
-        char* formattedMessage = allocateFormat("There was a problem while loading a mod:\n\
-%s\n\
-\n\
-Would you like to continue launching the game anyway?\n\
-This might cause the game to become unstable.", 1, message);
+        char* formattedMessage = allocateFormat(ERROR_DIALOG_MESSAGE, 1, message);
+        ensureAllocSuccess(formattedMessage);
         int chosenOption = MessageBox(
             NULL,
             formattedMessage,
-            "Error while loading native mod",
+            ERROR_DIALOG_TITLE,
             MB_YESNO | MB_ICONWARNING | MB_DEFBUTTON2
         );
         free(formattedMessage);
@@ -80,6 +90,7 @@ This might cause the game to become unstable.", 1, message);
         va_list args;
         va_start(args, argCount);
         LPTSTR message = formatNativeError(&args);
+        ensureAllocSuccess(message);
         printf_s("%s\n", message);
         popupErrorMessage(message);
         LocalFree(message);
