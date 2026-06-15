@@ -4,16 +4,15 @@
 #include "../NativeModApi.h"
 #include <Version.h>
 #include <Extender/util.h>
+#include <Extender/SharedObject.h>
 
 #include <filesystem>
-#include <regex>
 
 #include <Windows.h>
 
 namespace LoaderMod
 {
     constexpr const char MODS_DIRECTORY[] = "data\\mods";
-    constexpr const char MOD_FILE_EXTENSION[] = ".dll";
     constexpr const char ERROR_DIALOG_TITLE[] = "Error while loading native mod";
     constexpr const char ERROR_DIALOG_MESSAGE[] = "There was a problem while loading a mod:\n\
 %s\n\
@@ -96,16 +95,12 @@ This might cause the game to become unstable.";
         LocalFree(message);
     }
 
-    void unload(HMODULE library, LPCWSTR libPath, LPCSTR reason)
+    void showUnloadReason(LPCWSTR libPath, LPCSTR reason)
     {
         char* message = allocateFormat("Native mod %S %s", 2, libPath, reason);
         printf_s("%s; unloading\n", message);
         popupErrorMessage(message);
         free(message);
-        if (!FreeLibrary(library)) {
-            showNativeError(0);
-            printf("Failed to unload.\n");
-        }
     }
 
     void begin(CodeInjection::FuncInterceptor* hook)
@@ -120,39 +115,42 @@ This might cause the game to become unstable.";
         for (auto& p : std::filesystem::directory_iterator(MODS_DIRECTORY))
         {
             if (p.is_directory()) continue;
-            if (p.path().extension() != MOD_FILE_EXTENSION) continue;
+            if (p.path().extension() != SharedObject::DefaultExtension) continue;
 
             LPCWSTR libPath = p.path().c_str();
             printf_s("Loading native mod: %S\n", libPath);
-            HMODULE library = LoadLibraryW(libPath);
-            if (library == NULL) {
+            SharedObject library; // Any of the upcoming continue statements will call the destructor and unload the library
+            if (!library.loadWide(libPath)) {
                 std::string libPathString = p.path().string();
                 showNativeError(1, libPathString.c_str());
                 printf_s("Failed to load native mod %S; skipping\n", libPath);
                 continue;
             }
 
-            IsCompatibleFn isCompatible = (IsCompatibleFn)GetProcAddress(library, ISCOMPATIBLEFN_NAME);
+            IsCompatibleFn isCompatible = (IsCompatibleFn)library.getSymbol(ISCOMPATIBLEFN_NAME);
             if (isCompatible == NULL) {
-                unload(library, libPath, "does not have isCompatibleWithVersion symbol");
+                showUnloadReason(libPath, "does not have isCompatibleWithVersion symbol");
                 continue;
             }
 
             if (!isCompatible(&twistExtenderVersion)) {
-                unload(library, libPath, "is not compatible with this version of BejeweledTwistExtender");
+                showUnloadReason(libPath, "is not compatible with this version of BejeweledTwistExtender");
                 continue;
             }
 
-            InitModFn initMod = (InitModFn)GetProcAddress(library, INITMODFN_NAME);
+            InitModFn initMod = (InitModFn)library.getSymbol(INITMODFN_NAME);
             if (initMod == NULL) {
-                unload(library, libPath, "does not have initMod symbol");
+                showUnloadReason(libPath, "does not have initMod symbol");
                 continue;
             }
 
             if (!initMod(hook, &gHookFunctions)) {
-                unload(library, libPath, "failed to initialize");
+                showUnloadReason(libPath, "failed to initialize");
                 continue;
             }
+
+            // Make sure to not unload the library before the next iteration if it initialized successfully
+            library.leak();
         }
     }
 }

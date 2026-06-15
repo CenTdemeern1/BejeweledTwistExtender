@@ -7,19 +7,24 @@ class CODEINJECTION_EXPORT SharedObject
 {
 public:
 	SharedObject();
-	SharedObject(const char *path);
+	SharedObject(const char* path);
+	SharedObject(const wchar_t* path);
+	SharedObject(void* libHandle);
 	~SharedObject();
 	
-	bool load(const char *path);
+	bool load(const char* path);
+	bool loadWide(const wchar_t* path);
+	void* swapHandle(void* libHandle);
 	bool loaded() const;
 	bool unload();
+	void* leak();
 	
-	void *getSymbol(const char *name) const;
+	void* getSymbol(const char* name) const;
 	
-	static const char *DefaultExtension;
+	static const char* DefaultExtension;
 
 private:
-	void *handle;
+	void* handle;
 };
 
 #endif
