@@ -37,7 +37,15 @@ inline bool meetsVersionRequirement(Version* version, Version* requirement) {
 		&& (
             version->minor != requirement->minor // Unless the minor version is different...
             || version->patch != requirement->patch // or the patch version is different...
-            || version->prereleaseCompatible == requirement->prereleaseCompatible // They need to have the same prerelease compatibility level
+            || (
+                // This prerelease needs to be supported by the loader version
+                // loader compat level <= mod required version <= loader version
+                // A prerelease might add new features while being backwards compatible with an earlier prerelease,
+                // so setting the prerelease we're compiling against as the minimum seems reasonable.
+                // Also needs to not have breaking changes, of course
+                version->prereleaseCompatible <= requirement->prerelease
+                && requirement->prerelease <= version->prerelease
+            )
         );
 }
 
